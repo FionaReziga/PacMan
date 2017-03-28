@@ -7,7 +7,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Epulapp\Downloads\Cours\C#\TPs\MemoryC-\Pacman\Pacman\Pacman\bin\x86\Debug\Content\Ressources\Images\barriereFantome.xnb</Output>
+      <Output>C:\Users\Epulapp\Downloads\Cours\C#\TPs\PacMan\Pacman\Pacman\Pacman\bin\x86\Debug\Content\Ressources\Images\barriereFantome.xnb</Output>
       <Time>2017-03-07T15:59:04.3717856+01:00</Time>
     </Item>
     <Item>
@@ -16,7 +16,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Epulapp\Downloads\Cours\C#\TPs\MemoryC-\Pacman\Pacman\Pacman\bin\x86\Debug\Content\Ressources\Images\bean.xnb</Output>
+      <Output>C:\Users\Epulapp\Downloads\Cours\C#\TPs\PacMan\Pacman\Pacman\Pacman\bin\x86\Debug\Content\Ressources\Images\bean.xnb</Output>
       <Time>2017-03-07T15:59:04.3717856+01:00</Time>
     </Item>
     <Item>
@@ -25,7 +25,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Epulapp\Downloads\Cours\C#\TPs\MemoryC-\Pacman\Pacman\Pacman\bin\x86\Debug\Content\Ressources\Images\fantomeBleu.xnb</Output>
+      <Output>C:\Users\Epulapp\Downloads\Cours\C#\TPs\PacMan\Pacman\Pacman\Pacman\bin\x86\Debug\Content\Ressources\Images\fantomeBleu.xnb</Output>
       <Time>2017-03-07T15:59:04.4029848+01:00</Time>
     </Item>
     <Item>
@@ -34,7 +34,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Epulapp\Downloads\Cours\C#\TPs\MemoryC-\Pacman\Pacman\Pacman\bin\x86\Debug\Content\Ressources\Images\FantomePeur0.xnb</Output>
+      <Output>C:\Users\Epulapp\Downloads\Cours\C#\TPs\PacMan\Pacman\Pacman\Pacman\bin\x86\Debug\Content\Ressources\Images\FantomePeur0.xnb</Output>
       <Time>2017-03-07T15:59:04.4029848+01:00</Time>
     </Item>
     <Item>
@@ -43,7 +43,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Epulapp\Downloads\Cours\C#\TPs\MemoryC-\Pacman\Pacman\Pacman\bin\x86\Debug\Content\Ressources\Images\FantomePeur1.xnb</Output>
+      <Output>C:\Users\Epulapp\Downloads\Cours\C#\TPs\PacMan\Pacman\Pacman\Pacman\bin\x86\Debug\Content\Ressources\Images\FantomePeur1.xnb</Output>
       <Time>2017-03-07T15:59:04.4029848+01:00</Time>
     </Item>
     <Item>
@@ -52,7 +52,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Epulapp\Downloads\Cours\C#\TPs\MemoryC-\Pacman\Pacman\Pacman\bin\x86\Debug\Content\Ressources\Images\fantomeRose.xnb</Output>
+      <Output>C:\Users\Epulapp\Downloads\Cours\C#\TPs\PacMan\Pacman\Pacman\Pacman\bin\x86\Debug\Content\Ressources\Images\fantomeRose.xnb</Output>
       <Time>2017-03-07T15:59:04.4185844+01:00</Time>
     </Item>
     <Item>
@@ -61,7 +61,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Epulapp\Downloads\Cours\C#\TPs\MemoryC-\Pacman\Pacman\Pacman\bin\x86\Debug\Content\Ressources\Images\fantomeRouge.xnb</Output>
+      <Output>C:\Users\Epulapp\Downloads\Cours\C#\TPs\PacMan\Pacman\Pacman\Pacman\bin\x86\Debug\Content\Ressources\Images\fantomeRouge.xnb</Output>
       <Time>2017-03-07T15:59:04.4185844+01:00</Time>
     </Item>
     <Item>
@@ -70,7 +70,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Epulapp\Downloads\Cours\C#\TPs\MemoryC-\Pacman\Pacman\Pacman\bin\x86\Debug\Content\Ressources\Images\fantomeVert.xnb</Output>
+      <Output>C:\Users\Epulapp\Downloads\Cours\C#\TPs\PacMan\Pacman\Pacman\Pacman\bin\x86\Debug\Content\Ressources\Images\fantomeVert.xnb</Output>
       <Time>2017-03-07T15:59:04.4185844+01:00</Time>
     </Item>
     <Item>
@@ -79,7 +79,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Epulapp\Downloads\Cours\C#\TPs\MemoryC-\Pacman\Pacman\Pacman\bin\x86\Debug\Content\Ressources\Images\fantome_cyan.xnb</Output>
+      <Output>C:\Users\Epulapp\Downloads\Cours\C#\TPs\PacMan\Pacman\Pacman\Pacman\bin\x86\Debug\Content\Ressources\Images\fantome_cyan.xnb</Output>
       <Time>2017-03-07T15:59:04.3873852+01:00</Time>
     </Item>
     <Item>
@@ -88,7 +88,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Epulapp\Downloads\Cours\C#\TPs\MemoryC-\Pacman\Pacman\Pacman\bin\x86\Debug\Content\Ressources\Images\fantome_orange.xnb</Output>
+      <Output>C:\Users\Epulapp\Downloads\Cours\C#\TPs\PacMan\Pacman\Pacman\Pacman\bin\x86\Debug\Content\Ressources\Images\fantome_orange.xnb</Output>
       <Time>2017-03-07T15:59:04.3873852+01:00</Time>
     </Item>
     <Item>
@@ -97,7 +97,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Epulapp\Downloads\Cours\C#\TPs\MemoryC-\Pacman\Pacman\Pacman\bin\x86\Debug\Content\Ressources\Images\fantome_rose.xnb</Output>
+      <Output>C:\Users\Epulapp\Downloads\Cours\C#\TPs\PacMan\Pacman\Pacman\Pacman\bin\x86\Debug\Content\Ressources\Images\fantome_rose.xnb</Output>
       <Time>2017-03-07T15:59:04.3873852+01:00</Time>
     </Item>
     <Item>
@@ -106,7 +106,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Epulapp\Downloads\Cours\C#\TPs\MemoryC-\Pacman\Pacman\Pacman\bin\x86\Debug\Content\Ressources\Images\fantome_rouge.xnb</Output>
+      <Output>C:\Users\Epulapp\Downloads\Cours\C#\TPs\PacMan\Pacman\Pacman\Pacman\bin\x86\Debug\Content\Ressources\Images\fantome_rouge.xnb</Output>
       <Time>2017-03-07T15:59:04.4029848+01:00</Time>
     </Item>
     <Item>
@@ -115,7 +115,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Epulapp\Downloads\Cours\C#\TPs\MemoryC-\Pacman\Pacman\Pacman\bin\x86\Debug\Content\Ressources\Images\fan_mangeable.xnb</Output>
+      <Output>C:\Users\Epulapp\Downloads\Cours\C#\TPs\PacMan\Pacman\Pacman\Pacman\bin\x86\Debug\Content\Ressources\Images\fan_mangeable.xnb</Output>
       <Time>2017-03-07T15:59:04.3717856+01:00</Time>
     </Item>
     <Item>
@@ -124,7 +124,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Epulapp\Downloads\Cours\C#\TPs\MemoryC-\Pacman\Pacman\Pacman\bin\x86\Debug\Content\Ressources\Images\gros_bean.xnb</Output>
+      <Output>C:\Users\Epulapp\Downloads\Cours\C#\TPs\PacMan\Pacman\Pacman\Pacman\bin\x86\Debug\Content\Ressources\Images\gros_bean.xnb</Output>
       <Time>2017-03-07T15:59:04.4185844+01:00</Time>
     </Item>
     <Item>
@@ -133,7 +133,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Epulapp\Downloads\Cours\C#\TPs\MemoryC-\Pacman\Pacman\Pacman\bin\x86\Debug\Content\Ressources\Images\Mort0.xnb</Output>
+      <Output>C:\Users\Epulapp\Downloads\Cours\C#\TPs\PacMan\Pacman\Pacman\Pacman\bin\x86\Debug\Content\Ressources\Images\Mort0.xnb</Output>
       <Time>2017-03-07T15:59:04.434184+01:00</Time>
     </Item>
     <Item>
@@ -142,7 +142,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Epulapp\Downloads\Cours\C#\TPs\MemoryC-\Pacman\Pacman\Pacman\bin\x86\Debug\Content\Ressources\Images\Mort1.xnb</Output>
+      <Output>C:\Users\Epulapp\Downloads\Cours\C#\TPs\PacMan\Pacman\Pacman\Pacman\bin\x86\Debug\Content\Ressources\Images\Mort1.xnb</Output>
       <Time>2017-03-07T15:59:04.434184+01:00</Time>
     </Item>
     <Item>
@@ -151,7 +151,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Epulapp\Downloads\Cours\C#\TPs\MemoryC-\Pacman\Pacman\Pacman\bin\x86\Debug\Content\Ressources\Images\Mort2.xnb</Output>
+      <Output>C:\Users\Epulapp\Downloads\Cours\C#\TPs\PacMan\Pacman\Pacman\Pacman\bin\x86\Debug\Content\Ressources\Images\Mort2.xnb</Output>
       <Time>2017-03-07T15:59:04.434184+01:00</Time>
     </Item>
     <Item>
@@ -160,7 +160,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Epulapp\Downloads\Cours\C#\TPs\MemoryC-\Pacman\Pacman\Pacman\bin\x86\Debug\Content\Ressources\Images\Mort3.xnb</Output>
+      <Output>C:\Users\Epulapp\Downloads\Cours\C#\TPs\PacMan\Pacman\Pacman\Pacman\bin\x86\Debug\Content\Ressources\Images\Mort3.xnb</Output>
       <Time>2017-03-07T15:59:04.434184+01:00</Time>
     </Item>
     <Item>
@@ -169,26 +169,8 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Epulapp\Downloads\Cours\C#\TPs\MemoryC-\Pacman\Pacman\Pacman\bin\x86\Debug\Content\Ressources\Images\mur.xnb</Output>
+      <Output>C:\Users\Epulapp\Downloads\Cours\C#\TPs\PacMan\Pacman\Pacman\Pacman\bin\x86\Debug\Content\Ressources\Images\mur.xnb</Output>
       <Time>2017-03-07T15:59:04.4497836+01:00</Time>
-    </Item>
-    <Item>
-      <Source>Ressources\Images\pouvoir.png</Source>
-      <Name>Ressources\Images\pouvoir</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Epulapp\Downloads\Cours\C#\TPs\MemoryC-\Pacman\Pacman\Pacman\bin\x86\Debug\Content\Ressources\Images\pouvoir.xnb</Output>
-      <Time>2017-03-07T15:59:04.4653832+01:00</Time>
-    </Item>
-    <Item>
-      <Source>Ressources\Images\mur2.png</Source>
-      <Name>Ressources\Images\mur2</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Epulapp\Downloads\Cours\C#\TPs\MemoryC-\Pacman\Pacman\Pacman\bin\x86\Debug\Content\Ressources\Images\mur2.xnb</Output>
-      <Time>2017-03-07T16:32:35.3968516+01:00</Time>
     </Item>
     <Item>
       <Source>Ressources\Images\pacmanBas.png</Source>
@@ -196,7 +178,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Epulapp\Downloads\Cours\C#\TPs\MemoryC-\Pacman\Pacman\Pacman\bin\x86\Debug\Content\Ressources\Images\pacmanBas.xnb</Output>
+      <Output>C:\Users\Epulapp\Downloads\Cours\C#\TPs\PacMan\Pacman\Pacman\Pacman\bin\x86\Debug\Content\Ressources\Images\pacmanBas.xnb</Output>
       <Time>2017-03-07T15:59:04.4497836+01:00</Time>
     </Item>
     <Item>
@@ -205,7 +187,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Epulapp\Downloads\Cours\C#\TPs\MemoryC-\Pacman\Pacman\Pacman\bin\x86\Debug\Content\Ressources\Images\pacmanDroite.xnb</Output>
+      <Output>C:\Users\Epulapp\Downloads\Cours\C#\TPs\PacMan\Pacman\Pacman\Pacman\bin\x86\Debug\Content\Ressources\Images\pacmanDroite.xnb</Output>
       <Time>2017-03-07T15:59:04.4497836+01:00</Time>
     </Item>
     <Item>
@@ -214,7 +196,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Epulapp\Downloads\Cours\C#\TPs\MemoryC-\Pacman\Pacman\Pacman\bin\x86\Debug\Content\Ressources\Images\pacmanGauche.xnb</Output>
+      <Output>C:\Users\Epulapp\Downloads\Cours\C#\TPs\PacMan\Pacman\Pacman\Pacman\bin\x86\Debug\Content\Ressources\Images\pacmanGauche.xnb</Output>
       <Time>2017-03-07T15:59:04.4653832+01:00</Time>
     </Item>
     <Item>
@@ -223,8 +205,26 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Epulapp\Downloads\Cours\C#\TPs\MemoryC-\Pacman\Pacman\Pacman\bin\x86\Debug\Content\Ressources\Images\pacmanHaut.xnb</Output>
+      <Output>C:\Users\Epulapp\Downloads\Cours\C#\TPs\PacMan\Pacman\Pacman\Pacman\bin\x86\Debug\Content\Ressources\Images\pacmanHaut.xnb</Output>
       <Time>2017-03-07T15:59:04.4653832+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Ressources\Images\pouvoir.png</Source>
+      <Name>Ressources\Images\pouvoir</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Epulapp\Downloads\Cours\C#\TPs\PacMan\Pacman\Pacman\Pacman\bin\x86\Debug\Content\Ressources\Images\pouvoir.xnb</Output>
+      <Time>2017-03-07T15:59:04.4653832+01:00</Time>
+    </Item>
+    <Item>
+      <Source>Ressources\Images\mur2.png</Source>
+      <Name>Ressources\Images\mur2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Epulapp\Downloads\Cours\C#\TPs\PacMan\Pacman\Pacman\Pacman\bin\x86\Debug\Content\Ressources\Images\mur2.xnb</Output>
+      <Time>2017-03-07T16:32:35.3968516+01:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -233,10 +233,10 @@
       <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\Epulapp\Downloads\Cours\C#\TPs\MemoryC-\Pacman\Pacman\PacmanContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\Epulapp\Downloads\Cours\C#\TPs\MemoryC-\Pacman\Pacman\Pacman\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\Epulapp\Downloads\Cours\C#\TPs\MemoryC-\Pacman\Pacman\Pacman\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\Epulapp\Downloads\Cours\C#\TPs\MemoryC-\Pacman\Pacman\Pacman\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\Epulapp\Downloads\Cours\C#\TPs\PacMan\Pacman\Pacman\PacmanContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Epulapp\Downloads\Cours\C#\TPs\PacMan\Pacman\Pacman\Pacman\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Epulapp\Downloads\Cours\C#\TPs\PacMan\Pacman\Pacman\Pacman\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Epulapp\Downloads\Cours\C#\TPs\PacMan\Pacman\Pacman\Pacman\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>

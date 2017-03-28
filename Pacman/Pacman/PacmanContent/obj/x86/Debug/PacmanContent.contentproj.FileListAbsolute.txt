@@ -1,1 +1,2 @@
 C:\Users\Epulapp\Downloads\Cours\C#\TPs\MemoryC-\Pacman\Pacman\PacmanContent\obj\x86\Debug\PacmanContent.contentprojResolveAssemblyReference.cache
+C:\Users\Epulapp\Downloads\Cours\C#\TPs\PacMan\Pacman\Pacman\PacmanContent\obj\x86\Debug\PacmanContent.contentprojResolveAssemblyReference.cache
