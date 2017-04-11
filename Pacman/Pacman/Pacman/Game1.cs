@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Pacman.Métier;
+using Pacman.IA;
 
 namespace Pacman
 {
@@ -22,10 +23,14 @@ namespace Pacman
         ObjetAnime mur;
         ObjetAnime bean;
         ObjetAnime pacman;
+        ObjetAnime fantome1;
+        ObjetAnime fantome2;
         int pacmanX, pacmanY;
         String direction;
         byte[,] map;
         const int VX = 31, VY = 28;
+        Sommet[,] mesSommets;
+        bool tabSommetRemplis;
 
         String path = "Ressources/Images/";
 
@@ -36,22 +41,25 @@ namespace Pacman
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             direction = "Droite";
+            tabSommetRemplis = false;
+            mesSommets = new Sommet[VX,VY];
+           
             map = new byte[VX, VY]{
             {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
             {0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0},
             {0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0},
             {0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0},
             {0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0},
-            {0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0},
+            {0, 1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0},
             {0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0},
             {0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0},
-            {0, 1, 1, 1, 1, 1, 1, 0, 0, 3, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 0},
+            {0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 0},
             {0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0},
             {0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0},
             {0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0},
             {0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 2, 2, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0},
             {0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 2, 2, 2, 2, 2, 2, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0},
-            {0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 2, 2, 2, 2, 2, 2, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0},
+            {0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 2, 2, 4, 5, 2, 2, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0},
             {0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 2, 2, 2, 2, 2, 2, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0},
             {0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0},
             {0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0},
@@ -103,7 +111,8 @@ namespace Pacman
             mur = new ObjetAnime(Content.Load<Texture2D>(path + "mur2"), new Vector2(0f, 0f), new Vector2(20f, 20f));
             bean = new ObjetAnime(Content.Load<Texture2D>(path + "gros_bean"), new Vector2(0f, 0f), new Vector2(20f, 20f));
             pacman = new ObjetAnime(Content.Load<Texture2D>(path + "pacmanHaut"), new Vector2(0f, 0f), new Vector2(20f, 20f));
-
+            fantome1 = new ObjetAnime(Content.Load<Texture2D>(path + "fantome_cyan"), new Vector2(0f, 0f), new Vector2(20f, 20f));
+            fantome2 = new ObjetAnime(Content.Load<Texture2D>(path + "fantome_orange"), new Vector2(0f, 0f), new Vector2(20f, 20f));
         }
 
         /// <summary>
@@ -155,34 +164,28 @@ namespace Pacman
             {
                 for (int y = 0; y < VY; y++)
                 {
-                    if (map[x, y] == 0)
+                    switch (map[x, y])
                     {
-                        int xpos, ypos;
-                        xpos = x * 20;
-                        ypos = y * 20;
-                        Vector2 pos = new Vector2(ypos, xpos);
-                        spriteBatch.Draw(mur.Texture, pos, Color.White);
-                    }
-                    else if (map[x, y] == 1)
-                    {
-                        int xpos, ypos;
-                        xpos = x * 20;
-                        ypos = y * 20;
-                        Vector2 pos = new Vector2(ypos, xpos);
-                        spriteBatch.Draw(bean.Texture, pos, Color.White);
-                    }
-                    else if (map[x, y] == 3)
-                    {
-                        int xpos, ypos;
-                        xpos = x * 20;
-                        ypos = y * 20;
-                        pacmanX = x;
-                        pacmanY = y;
-                        Vector2 pos = new Vector2(ypos, xpos);
-                        spriteBatch.Draw(pacman.Texture, pos, Color.White);
+                        case 0:
+                            DessinerTextureMap(x, y, mur.Texture);
+                            break;
+                        case 1:
+                            DessinerTextureMap(x, y, bean.Texture);
+                            break;
+                        case 3:
+                            pacmanX = x;
+                            pacmanY = y;
+                            DessinerTextureMap(x, y, pacman.Texture);
+                            break;
+                        case 4:
+                            DessinerTextureMap(x, y, fantome1.Texture);
+                            break;
+                        case 5:
+                            DessinerTextureMap(x, y, fantome2.Texture);
+                            break;
+
                     }
                 }
-
             }
             pacman.Texture = Content.Load<Texture2D>(path + "pacman" + direction);
 
@@ -190,6 +193,21 @@ namespace Pacman
 
             spriteBatch.End();
             base.Draw(gameTime);
+        }
+
+        public void DessinerTextureMap(int x, int y, Texture2D texture) 
+        {
+            int xpos, ypos;
+            xpos = x * 20;
+            ypos = y * 20;
+            Vector2 pos = new Vector2(ypos, xpos);
+            spriteBatch.Draw(texture, pos, Color.White);
+            if (texture != mur.Texture && !tabSommetRemplis)
+            {
+                mesSommets[x,y] = new Sommet();
+                tabSommetRemplis = true;
+            }
+
         }
 
         public void VerifierPositionPacman()
@@ -219,6 +237,22 @@ namespace Pacman
                 map[pacmanX, pacmanY] = 2;
             }
 
+        }
+
+        // Phase d’initialisation de tous les sommets de notre matrice 
+
+        public Boolean LevelComplete()
+        {
+            for (int y = 0; y < VY; y++)
+            {
+                for (int x = 0; x < VX; x++)
+                {
+                    if (map[y, x] == 1)
+                        return false;
+                }
+
+            }
+            return true;
         }
     }
 }
