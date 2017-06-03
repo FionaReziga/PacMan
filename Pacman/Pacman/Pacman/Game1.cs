@@ -25,24 +25,30 @@ namespace Pacman
         ObjetAnime pacman;
         ObjetAnime fantome1;
         ObjetAnime fantome2;
-        int pacmanX, pacmanY;
-        String direction;
+        int pacmanX, pacmanY,score;
+        String direction,fantome1Direction,fantome2Direction;
         byte[,] map;
         const int VX = 31, VY = 28;
         Sommet[,] mesSommets;
         bool tabSommetRemplis;
+
+        protected Random random;
+        Coord posFantome1, posFantome2;
 
         String path = "Ressources/Images/";
 
         public Game1()
         {
             this.TargetElapsedTime = TimeSpan.FromSeconds(1.0f / 20.0f);
+            random = new Random(GetHashCode());
 
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             direction = "Droite";
             tabSommetRemplis = false;
             mesSommets = new Sommet[VX,VY];
+            posFantome1 = new Coord(14, 13);
+            posFantome2 = new Coord(14, 14);
            
             map = new byte[VX, VY]{
             {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -148,8 +154,12 @@ namespace Pacman
             {
                 direction = "Bas";
             }
+
+            //ghostcoll(gameTime);
+            ghostai(gameTime);
             base.Update(gameTime);
         }
+
 
         /// <summary>
         /// This is called when the game should draw itself.
@@ -178,9 +188,13 @@ namespace Pacman
                             DessinerTextureMap(x, y, pacman.Texture);
                             break;
                         case 4:
+                            posFantome1.X = x;
+                            posFantome1.Y = y;
                             DessinerTextureMap(x, y, fantome1.Texture);
                             break;
                         case 5:
+                            posFantome2.X = x;
+                            posFantome2.Y = y;
                             DessinerTextureMap(x, y, fantome2.Texture);
                             break;
 
@@ -233,6 +247,8 @@ namespace Pacman
         {
             if (map[posX, posY] != 0)
             {
+                if (map[posX, posY] == 1)
+                    score += 10;
                 map[posX, posY] = 3;
                 map[pacmanX, pacmanY] = 2;
             }
@@ -253,6 +269,98 @@ namespace Pacman
 
             }
             return true;
+        }
+
+
+
+        public void ghostai(GameTime gameTime)
+        {
+
+                int r = random.Next(4);
+                if (r == 1)
+                {
+                    fantome1Direction = "Droite";
+                }
+                else if (r == 2)
+                {
+                    fantome1Direction = "Gauche";
+                }
+                else if (r == 3)
+                {
+                    fantome1Direction = "Bas";
+                }
+                else if (r == 4)
+                {
+                    fantome1Direction = "Haut";
+                }
+
+
+            VerifierPositionFantome(gameTime);
+
+        }
+
+        public void VerifierPositionFantome(GameTime gameTime)
+        {
+            switch (fantome1Direction)
+            {
+                case "Haut":
+                    AvancerFantome1(posFantome1.X - 1, posFantome1.Y);
+                    break;
+                case "Bas":
+                    AvancerFantome1(posFantome1.X + 1, posFantome1.Y);
+                    break;
+                case "Gauche":
+                    AvancerFantome1(posFantome1.X, posFantome1.Y - 1);
+                    break;
+                case "Droite":
+                    AvancerFantome1(posFantome1.X, posFantome1.Y + 1);
+                    break;
+            }
+            switch (fantome2Direction)
+            {
+                case "Haut":
+                    AvancerFantome2(posFantome1.X - 1, posFantome1.Y);
+                    break;
+                case "Bas":
+                    AvancerFantome2(posFantome1.X + 1, posFantome1.Y);
+                    break;
+                case "Gauche":
+                    AvancerFantome2(posFantome1.X, posFantome1.Y - 1);
+                    break;
+                case "Droite":
+                    AvancerFantome2(posFantome1.X, posFantome1.Y + 1);
+                    break;
+            }
+        }
+
+        public void AvancerFantome1(int posX, int posY)
+        {
+            if (map[posX, posY] != 0)
+            {
+                if (map[posX, posY] == 1)
+                    map[posFantome1.X, posFantome1.Y] = 1;
+                else
+                    map[posFantome1.X, posFantome1.Y] = 2;
+
+                map[posX, posY] = 4;
+                
+            }
+
+        }
+
+        public void AvancerFantome2(int posX, int posY)
+        {
+            if (map[posX, posY] != 0)
+            {
+                if (map[posX, posY] == 1)
+                    map[posFantome2.X, posFantome2.Y] = 1;
+                else
+                    map[posFantome2.X, posFantome2.Y] = 2;
+
+                map[posX, posY] = 5;
+
+            }
+
         }
     }
 }
