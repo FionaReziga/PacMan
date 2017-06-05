@@ -25,8 +25,8 @@ namespace Pacman
         ObjetAnime pacman;
         ObjetAnime fantome1;
         ObjetAnime fantome2;
-        int pacmanX, pacmanY,score;
-        String direction,fantome1Direction,fantome2Direction;
+        int pacmanX, pacmanY, score;
+        String direction, fantome1Direction, fantome2Direction;
         byte[,] map;
         const int VX = 31, VY = 28;
         Sommet[,] mesSommets;
@@ -46,10 +46,10 @@ namespace Pacman
             Content.RootDirectory = "Content";
             direction = "Droite";
             tabSommetRemplis = false;
-            mesSommets = new Sommet[VX,VY];
+            mesSommets = new Sommet[VX, VY];
             posFantome1 = new Coord(14, 13);
             posFantome2 = new Coord(14, 14);
-           
+
             map = new byte[VX, VY]{
             {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
             {0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0},
@@ -156,7 +156,7 @@ namespace Pacman
             }
 
             //ghostcoll(gameTime);
-            ghostai(gameTime);
+            ghostai2(gameTime);
             base.Update(gameTime);
         }
 
@@ -209,7 +209,7 @@ namespace Pacman
             base.Draw(gameTime);
         }
 
-        public void DessinerTextureMap(int x, int y, Texture2D texture) 
+        public void DessinerTextureMap(int x, int y, Texture2D texture)
         {
             int xpos, ypos;
             xpos = x * 20;
@@ -218,7 +218,7 @@ namespace Pacman
             spriteBatch.Draw(texture, pos, Color.White);
             if (texture != mur.Texture && !tabSommetRemplis)
             {
-                mesSommets[x,y] = new Sommet();
+                mesSommets[x, y] = new Sommet();
                 tabSommetRemplis = true;
             }
 
@@ -276,27 +276,84 @@ namespace Pacman
         public void ghostai(GameTime gameTime)
         {
 
-                int r = random.Next(4);
-                if (r == 1)
-                {
-                    fantome1Direction = "Droite";
-                }
-                else if (r == 2)
-                {
-                    fantome1Direction = "Gauche";
-                }
-                else if (r == 3)
-                {
-                    fantome1Direction = "Bas";
-                }
-                else if (r == 4)
-                {
-                    fantome1Direction = "Haut";
-                }
+            int r1 = random.Next(4);
+            int r2 = random.Next(4);
+            if (r1 == 1)
+            {
+                fantome1Direction = "Droite";
+            }
+            else if (r1 == 2)
+            {
+                fantome1Direction = "Gauche";
+            }
+            else if (r1 == 3)
+            {
+                fantome1Direction = "Bas";
+            }
+            else if (r1 == 4)
+            {
+                fantome1Direction = "Haut";
+            }
 
+            if (r2 == 1)
+            {
+                fantome2Direction = "Droite";
+            }
+            else if (r2 == 2)
+            {
+                fantome2Direction = "Gauche";
+            }
+            else if (r2 == 3)
+            {
+                fantome2Direction = "Bas";
+            }
+            else if (r2 == 4)
+            {
+                fantome2Direction = "Haut";
+            }
 
             VerifierPositionFantome(gameTime);
 
+        }
+
+        public void ghostai2(GameTime gameTime)
+        {
+            double v1, v2, v3, v4; v1 = 0.0; v2 = 0.0; v3 = 0.0; v4 = 0.0;
+            if (map[posFantome1.X - 1, posFantome1.Y] != 0)
+            {
+                v1 = Math.Sqrt(Math.Pow((pacmanX - posFantome1.X - 1) + (pacmanY - posFantome1.Y), 2));
+            }
+            if (map[posFantome1.X, posFantome1.Y - 1] != 0)
+            {
+                v2 = Math.Sqrt(Math.Pow((pacmanX - posFantome1.X) + (pacmanY - posFantome1.Y - 1), 2));
+            }
+            if (map[posFantome1.X, posFantome1.Y + 1] != 0)
+            {
+                v3 = Math.Sqrt(Math.Pow((pacmanX - posFantome1.X) + (pacmanY - posFantome1.Y + 1), 2));
+            }
+            if (map[posFantome1.X + 1, posFantome1.Y] != 0)
+            {
+                v4 = Math.Sqrt(Math.Pow((pacmanX - posFantome1.X + 1) + (pacmanY - posFantome1.Y), 2));
+            }
+
+            if (v1 >= v2 && v1 >= v3 && v1 >= v4)
+            {
+                fantome1Direction = "Haut";
+            }
+            else if (v2 >= v1 && v2 >= v3 && v2 >= v4)
+            {
+                fantome1Direction = "Gauche";
+            }
+            else if (v3 >= v1 && v3 >= v2 && v3 >= v4)
+            {
+                fantome1Direction = "Droite";
+            }
+            else if (v4 >= v1 && v4 >= v2 && v4 >= v3)
+            {
+                fantome1Direction = "Bas";
+            }
+
+            VerifierPositionFantome(gameTime);
         }
 
         public void VerifierPositionFantome(GameTime gameTime)
@@ -343,7 +400,7 @@ namespace Pacman
                     map[posFantome1.X, posFantome1.Y] = 2;
 
                 map[posX, posY] = 4;
-                
+
             }
 
         }
