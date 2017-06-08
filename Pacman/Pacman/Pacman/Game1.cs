@@ -22,10 +22,10 @@ namespace Pacman
         SpriteBatch spriteBatch;
         ObjetAnime mur;
         ObjetAnime bean;
-        ObjetAnime pacman;
-        ObjetAnime fantome1;
-        ObjetAnime fantome2;
-        int pacmanX, pacmanY, score;
+        Pac pacman;
+        Fantome fantome1;
+        Fantome fantome2;
+        int score;
         String direction, fantome1Direction, fantome2Direction;
         byte[,] map;
         const int VX = 31, VY = 28;
@@ -33,7 +33,6 @@ namespace Pacman
         bool tabSommetRemplis;
 
         protected Random random;
-        Coord posFantome1, posFantome2;
 
         String path = "Ressources/Images/";
 
@@ -47,8 +46,9 @@ namespace Pacman
             direction = "Droite";
             tabSommetRemplis = false;
             mesSommets = new Sommet[VX, VY];
-            posFantome1 = new Coord(14, 13);
-            posFantome2 = new Coord(14, 14);
+            pacman = new Pac(new Coord(5,6),"Droite");
+            fantome1 = new Fantome(new Coord(14, 13),1,"Haut");
+            fantome2 = new Fantome(new Coord(14, 14),2,"Haut");
 
             map = new byte[VX, VY]{
             {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -116,9 +116,9 @@ namespace Pacman
             // on charge un objet mur 
             mur = new ObjetAnime(Content.Load<Texture2D>(path + "mur2"), new Vector2(0f, 0f), new Vector2(20f, 20f));
             bean = new ObjetAnime(Content.Load<Texture2D>(path + "gros_bean"), new Vector2(0f, 0f), new Vector2(20f, 20f));
-            pacman = new ObjetAnime(Content.Load<Texture2D>(path + "pacmanHaut"), new Vector2(0f, 0f), new Vector2(20f, 20f));
-            fantome1 = new ObjetAnime(Content.Load<Texture2D>(path + "fantome_cyan"), new Vector2(0f, 0f), new Vector2(20f, 20f));
-            fantome2 = new ObjetAnime(Content.Load<Texture2D>(path + "fantome_orange"), new Vector2(0f, 0f), new Vector2(20f, 20f));
+            pacman.ObjAnime = new ObjetAnime(Content.Load<Texture2D>(path + "pacmanHaut"), new Vector2(0f, 0f), new Vector2(20f, 20f));
+            fantome1.ObjAnime = new ObjetAnime(Content.Load<Texture2D>(path + "fantome_cyan"), new Vector2(0f, 0f), new Vector2(20f, 20f));
+            fantome2.ObjAnime = new ObjetAnime(Content.Load<Texture2D>(path + "fantome_orange"), new Vector2(0f, 0f), new Vector2(20f, 20f));
         }
 
         /// <summary>
@@ -183,25 +183,25 @@ namespace Pacman
                             DessinerTextureMap(x, y, bean.Texture);
                             break;
                         case 3:
-                            pacmanX = x;
-                            pacmanY = y;
-                            DessinerTextureMap(x, y, pacman.Texture);
+                            pacman.Pos.X = x;
+                            pacman.Pos.Y = y;
+                            DessinerTextureMap(x, y, pacman.ObjAnime.Texture);
                             break;
                         case 4:
-                            posFantome1.X = x;
-                            posFantome1.Y = y;
-                            DessinerTextureMap(x, y, fantome1.Texture);
+                            fantome1.Pos.X = x;
+                            fantome1.Pos.Y = y;
+                            DessinerTextureMap(x, y, fantome1.ObjAnime.Texture);
                             break;
                         case 5:
-                            posFantome2.X = x;
-                            posFantome2.Y = y;
-                            DessinerTextureMap(x, y, fantome2.Texture);
+                            fantome2.Pos.X = x;
+                            fantome2.Pos.Y = y;
+                            DessinerTextureMap(x, y, fantome2.ObjAnime.Texture);
                             break;
 
                     }
                 }
             }
-            pacman.Texture = Content.Load<Texture2D>(path + "pacman" + direction);
+            pacman.ObjAnime.Texture = Content.Load<Texture2D>(path + "pacman" + direction);
 
             VerifierPositionPacman();
 
@@ -229,16 +229,16 @@ namespace Pacman
             switch (direction)
             {
                 case "Haut":
-                    Avancer(pacmanX - 1, pacmanY);
+                    Avancer(pacman.Pos.X - 1, pacman.Pos.Y);
                     break;
                 case "Bas":
-                    Avancer(pacmanX + 1, pacmanY);
+                    Avancer(pacman.Pos.X + 1, pacman.Pos.Y);
                     break;
                 case "Gauche":
-                    Avancer(pacmanX, pacmanY - 1);
+                    Avancer(pacman.Pos.X, pacman.Pos.Y - 1);
                     break;
                 case "Droite":
-                    Avancer(pacmanX, pacmanY + 1);
+                    Avancer(pacman.Pos.X, pacman.Pos.Y + 1);
                     break;
             }
         }
@@ -250,7 +250,7 @@ namespace Pacman
                 if (map[posX, posY] == 1)
                     score += 10;
                 map[posX, posY] = 3;
-                map[pacmanX, pacmanY] = 2;
+                map[pacman.Pos.X, pacman.Pos.Y] = 2;
             }
 
         }
@@ -319,21 +319,21 @@ namespace Pacman
         public void ghostai2(GameTime gameTime)
         {
             double v1, v2, v3, v4; v1 = 0.0; v2 = 0.0; v3 = 0.0; v4 = 0.0;
-            if (map[posFantome1.X - 1, posFantome1.Y] != 0)
+            if (map[fantome1.Pos.X - 1, fantome1.Pos.Y] != 0)
             {
-                v1 = Math.Sqrt(Math.Pow((pacmanX - posFantome1.X - 1) + (pacmanY - posFantome1.Y), 2));
+                v1 = Math.Sqrt(Math.Pow((pacman.Pos.X - fantome1.Pos.X - 1) + (pacman.Pos.Y - fantome1.Pos.Y), 2));
             }
-            if (map[posFantome1.X, posFantome1.Y - 1] != 0)
+            if (map[fantome1.Pos.X, fantome1.Pos.Y - 1] != 0)
             {
-                v2 = Math.Sqrt(Math.Pow((pacmanX - posFantome1.X) + (pacmanY - posFantome1.Y - 1), 2));
+                v2 = Math.Sqrt(Math.Pow((pacman.Pos.X - fantome1.Pos.X) + (pacman.Pos.Y - fantome1.Pos.Y - 1), 2));
             }
-            if (map[posFantome1.X, posFantome1.Y + 1] != 0)
+            if (map[fantome1.Pos.X, fantome1.Pos.Y + 1] != 0)
             {
-                v3 = Math.Sqrt(Math.Pow((pacmanX - posFantome1.X) + (pacmanY - posFantome1.Y + 1), 2));
+                v3 = Math.Sqrt(Math.Pow((pacman.Pos.X - fantome1.Pos.X) + (pacman.Pos.Y - fantome1.Pos.Y + 1), 2));
             }
-            if (map[posFantome1.X + 1, posFantome1.Y] != 0)
+            if (map[fantome1.Pos.X + 1, fantome1.Pos.Y] != 0)
             {
-                v4 = Math.Sqrt(Math.Pow((pacmanX - posFantome1.X + 1) + (pacmanY - posFantome1.Y), 2));
+                v4 = Math.Sqrt(Math.Pow((pacman.Pos.X - fantome1.Pos.X + 1) + (pacman.Pos.Y - fantome1.Pos.Y), 2));
             }
 
             if (v1 >= v2 && v1 >= v3 && v1 >= v4)
@@ -361,31 +361,31 @@ namespace Pacman
             switch (fantome1Direction)
             {
                 case "Haut":
-                    AvancerFantome1(posFantome1.X - 1, posFantome1.Y);
+                    AvancerFantome1(fantome1.Pos.X - 1, fantome1.Pos.Y);
                     break;
                 case "Bas":
-                    AvancerFantome1(posFantome1.X + 1, posFantome1.Y);
+                    AvancerFantome1(fantome1.Pos.X + 1, fantome1.Pos.Y);
                     break;
                 case "Gauche":
-                    AvancerFantome1(posFantome1.X, posFantome1.Y - 1);
+                    AvancerFantome1(fantome1.Pos.X, fantome1.Pos.Y - 1);
                     break;
                 case "Droite":
-                    AvancerFantome1(posFantome1.X, posFantome1.Y + 1);
+                    AvancerFantome1(fantome1.Pos.X, fantome1.Pos.Y + 1);
                     break;
             }
             switch (fantome2Direction)
             {
                 case "Haut":
-                    AvancerFantome2(posFantome1.X - 1, posFantome1.Y);
+                    AvancerFantome2(fantome1.Pos.X - 1, fantome1.Pos.Y);
                     break;
                 case "Bas":
-                    AvancerFantome2(posFantome1.X + 1, posFantome1.Y);
+                    AvancerFantome2(fantome1.Pos.X + 1, fantome1.Pos.Y);
                     break;
                 case "Gauche":
-                    AvancerFantome2(posFantome1.X, posFantome1.Y - 1);
+                    AvancerFantome2(fantome1.Pos.X, fantome1.Pos.Y - 1);
                     break;
                 case "Droite":
-                    AvancerFantome2(posFantome1.X, posFantome1.Y + 1);
+                    AvancerFantome2(fantome1.Pos.X, fantome1.Pos.Y + 1);
                     break;
             }
         }
@@ -395,9 +395,9 @@ namespace Pacman
             if (map[posX, posY] != 0)
             {
                 if (map[posX, posY] == 1)
-                    map[posFantome1.X, posFantome1.Y] = 1;
+                    map[fantome1.Pos.X, fantome1.Pos.Y] = 1;
                 else
-                    map[posFantome1.X, posFantome1.Y] = 2;
+                    map[fantome1.Pos.X, fantome1.Pos.Y] = 2;
 
                 map[posX, posY] = 4;
 
@@ -410,9 +410,9 @@ namespace Pacman
             if (map[posX, posY] != 0)
             {
                 if (map[posX, posY] == 1)
-                    map[posFantome2.X, posFantome2.Y] = 1;
+                    map[fantome2.Pos.X, fantome2.Pos.Y] = 1;
                 else
-                    map[posFantome2.X, posFantome2.Y] = 2;
+                    map[fantome2.Pos.X, fantome2.Pos.Y] = 2;
 
                 map[posX, posY] = 5;
 
