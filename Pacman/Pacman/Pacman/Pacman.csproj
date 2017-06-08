@@ -74,7 +74,11 @@
   <ItemGroup>
     <Compile Include="IA\Sommet.cs" />
     <Compile Include="IA\Coord.cs" />
-    <Compile Include="Métier\ObjetAnime.cs" />
+    <Compile Include="Metier\Bean.cs" />
+    <Compile Include="Metier\Fantome.cs" />
+    <Compile Include="Metier\Map.cs" />
+    <Compile Include="Metier\ObjetAnime.cs" />
+    <Compile Include="Metier\Pac.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Game1.cs" />
