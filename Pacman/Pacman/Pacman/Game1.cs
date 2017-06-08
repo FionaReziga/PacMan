@@ -26,7 +26,7 @@ namespace Pacman
         Fantome fantome1;
         Fantome fantome2;
         int score;
-        String direction, fantome1Direction, fantome2Direction;
+        
         byte[,] map;
         const int VX = 31, VY = 28;
         Sommet[,] mesSommets;
@@ -43,7 +43,6 @@ namespace Pacman
 
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            direction = "Droite";
             tabSommetRemplis = false;
             mesSommets = new Sommet[VX, VY];
             pacman = new Pac(new Coord(5,6),"Droite");
@@ -140,19 +139,19 @@ namespace Pacman
             KeyboardState keyboard = Keyboard.GetState();
             if (keyboard.IsKeyDown(Keys.Right))
             {
-                direction = "Droite";
+                pacman.Direction = "Droite";
             }
             else if (keyboard.IsKeyDown(Keys.Left))
             {
-                direction = "Gauche";
+                pacman.Direction = "Gauche";
             }
             else if (keyboard.IsKeyDown(Keys.Up))
             {
-                direction = "Haut";
+                pacman.Direction = "Haut";
             }
             else if (keyboard.IsKeyDown(Keys.Down))
             {
-                direction = "Bas";
+                pacman.Direction = "Bas";
             }
 
             //ghostcoll(gameTime);
@@ -201,7 +200,7 @@ namespace Pacman
                     }
                 }
             }
-            pacman.ObjAnime.Texture = Content.Load<Texture2D>(path + "pacman" + direction);
+            pacman.ObjAnime.Texture = Content.Load<Texture2D>(path + "pacman" + pacman.Direction);
 
             VerifierPositionPacman();
 
@@ -226,7 +225,7 @@ namespace Pacman
 
         public void VerifierPositionPacman()
         {
-            switch (direction)
+            switch (pacman.Direction)
             {
                 case "Haut":
                     Avancer(pacman.Pos.X - 1, pacman.Pos.Y);
@@ -280,36 +279,36 @@ namespace Pacman
             int r2 = random.Next(4);
             if (r1 == 1)
             {
-                fantome1Direction = "Droite";
+                fantome1.Direction = "Droite";
             }
             else if (r1 == 2)
             {
-                fantome1Direction = "Gauche";
+                fantome1.Direction = "Gauche";
             }
             else if (r1 == 3)
             {
-                fantome1Direction = "Bas";
+                fantome1.Direction = "Bas";
             }
             else if (r1 == 4)
             {
-                fantome1Direction = "Haut";
+                fantome1.Direction = "Haut";
             }
 
             if (r2 == 1)
             {
-                fantome2Direction = "Droite";
+                fantome2.Direction = "Droite";
             }
             else if (r2 == 2)
             {
-                fantome2Direction = "Gauche";
+                fantome2.Direction = "Gauche";
             }
             else if (r2 == 3)
             {
-                fantome2Direction = "Bas";
+                fantome2.Direction = "Bas";
             }
             else if (r2 == 4)
             {
-                fantome2Direction = "Haut";
+                fantome2.Direction = "Haut";
             }
 
             VerifierPositionFantome(gameTime);
@@ -338,19 +337,19 @@ namespace Pacman
 
             if (v1 >= v2 && v1 >= v3 && v1 >= v4)
             {
-                fantome1Direction = "Haut";
+                fantome1.Direction = "Haut";
             }
             else if (v2 >= v1 && v2 >= v3 && v2 >= v4)
             {
-                fantome1Direction = "Gauche";
+                fantome1.Direction = "Gauche";
             }
             else if (v3 >= v1 && v3 >= v2 && v3 >= v4)
             {
-                fantome1Direction = "Droite";
+                fantome1.Direction = "Droite";
             }
             else if (v4 >= v1 && v4 >= v2 && v4 >= v3)
             {
-                fantome1Direction = "Bas";
+                fantome1.Direction = "Bas";
             }
 
             VerifierPositionFantome(gameTime);
@@ -358,7 +357,7 @@ namespace Pacman
 
         public void VerifierPositionFantome(GameTime gameTime)
         {
-            switch (fantome1Direction)
+            switch (fantome1.Direction)
             {
                 case "Haut":
                     AvancerFantome1(fantome1.Pos.X - 1, fantome1.Pos.Y);
@@ -373,7 +372,7 @@ namespace Pacman
                     AvancerFantome1(fantome1.Pos.X, fantome1.Pos.Y + 1);
                     break;
             }
-            switch (fantome2Direction)
+            switch (fantome2.Direction)
             {
                 case "Haut":
                     AvancerFantome2(fantome1.Pos.X - 1, fantome1.Pos.Y);
